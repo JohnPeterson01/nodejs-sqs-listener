@@ -18,7 +18,7 @@ This service can be run as a sidecar container to hook up a microservice to an s
 ## Run the service
 In order to start the service locally, go into the 'src' folder and run
 ```bash
-npm run dev
+npm i && npm run dev
 ```
 
 ## Dependencies for running locally
