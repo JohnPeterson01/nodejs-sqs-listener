@@ -16,7 +16,7 @@ This service can be run as a sidecar container to hook up a microservice to an s
 2. Integration with existing architecture: If current architecture is reliant on restful APIs, the listener can be used to add the additional capabilities of event processing to microservices.
 
 ## Run the service
-In order to start the service locally, go into the 'src' folder and run
+In order to start the service locally, go into the root directory and run
 ```bash
 npm i && npm run dev
 ```
