@@ -21,7 +21,11 @@ In order to start the service locally, go into the 'src' folder and run
 npm run dev
 ```
 
-## Still to do:
+## Dependencies for running locally
+1. localstack (https://github.com/localstack/localstack) used to mock aws services
+
+
+## Still to do
 1. Add in tests
 2. Add dockerfile
 3. Docker compose and setup scripts
