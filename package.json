@@ -1,0 +1,41 @@
+{
+  "name": "nodejs-sqs-listener",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "dev": "env-cmd -e dev nodemon --exec babel-node src/app.js",
+    "test": "env-cmd test jest src/",
+    "watch-test": "env-cmd test jest src/ --watch",
+    "docker-build": "docker build -t nodejs-sqs-listener:local .",
+    "docker-run": "docker run -it nodejs-sqs-listener:local"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ]
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "aws-sdk": "^2.649.0",
+    "axios": "^0.19.2",
+    "cors": "^2.8.5",
+    "env-cmd": "^10.1.0",
+    "express": "^4.17.1",
+    "util": "^0.12.2",
+    "uuid": "^7.0.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/node": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "nodemon": "^2.0.4"
+  }
+}

@@ -1,0 +1,1 @@
+export const NEW_EVENT_TYPE_1 = 'NEW_EVENT_TYPE_1'
