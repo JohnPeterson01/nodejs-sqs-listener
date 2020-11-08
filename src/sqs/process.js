@@ -3,8 +3,7 @@ import { post } from '../connector'
 import { updatePollingFrequency } from './polling'
 import logger from '../logging/logger'
 
-export const processMessage = async (messageData) => {
-  // Get the first message from the queue of messages - in future will look to process in batches
+export const processMessage = async messageData => {
   logger('Processing an event message')
   const {
     receiptHandle,
@@ -36,7 +35,7 @@ export const processMessage = async (messageData) => {
   return receiptHandle
 }
 
-const getMicroserviceRoute = (eventType) => {
+const getMicroserviceRoute = eventType => {
   logger(`Finding microservice route for event type: '${eventType}'`)
 
   let microserviceRoute = ''
@@ -50,7 +49,7 @@ const getMicroserviceRoute = (eventType) => {
   return microserviceRoute
 }
 
-export const extractMessages = (queueData) => {
+export const extractMessages = queueData => {
   // Returns list of messages to process
   let messages = []
   for (const message in queueData.Messages) {

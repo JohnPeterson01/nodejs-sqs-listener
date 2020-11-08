@@ -5,7 +5,6 @@ import logger from '../logging/logger'
 const SQS_QUEUE_URL = process.env.SQS_QUEUE_URL
 
 const receiveMessage = receiveParams => new Promise((resolve, reject) => {
-  const operationName = 'RECEIVE_EVENT_QUEUE_MESSAGE'
   logger('Going to get queue data')
 
   sqs.receiveMessage(receiveParams, (error, data) => {
@@ -19,7 +18,7 @@ const receiveMessage = receiveParams => new Promise((resolve, reject) => {
   })
 })
 
-const deleteMessage = (receiptMessage) => new Promise((resolve, reject) => {
+const deleteMessage = receiptMessage => new Promise((resolve, reject) => {
   logger('Deleting event queue message')
 
   const deleteParams = {
@@ -29,7 +28,7 @@ const deleteMessage = (receiptMessage) => new Promise((resolve, reject) => {
 
   sqs.deleteMessage(deleteParams, (error, data) => {
     if (error) {
-      logger.error(`There was an error deleting the sqs message: ${error.stack}`)
+      logger(`There was an error deleting the sqs message: ${error.stack}`)
       reject(new Error(error))
     } else {
       logger('Event queue message deleted')
@@ -51,7 +50,7 @@ export const checkForMessage = async () => {
       // Separate out into multiple messages here
       const messages = extractMessages(queueData)
       for(const message of messages){
-        const receiptHandle = await processQueueData(message)
+        const receiptHandle = await processMessage(message)
         logger(`receiptHandle returned: ${receiptHandle}`)
         await deleteMessage(receiptHandle)
       }
