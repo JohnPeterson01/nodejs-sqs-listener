@@ -52,7 +52,7 @@ const getMicroserviceRoute = eventType => {
 export const extractMessages = queueData => {
   // Returns list of messages to process
   let messages = []
-  for (const message in queueData.Messages) {
+  for (const message of queueData.Messages) {
     try {
       const receiptHandle = message.ReceiptHandle
       const messageBody = JSON.parse(message.Body)
