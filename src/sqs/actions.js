@@ -2,7 +2,7 @@ import { sqs, sqsReceiveParams } from './config'
 import { processMessage, extractMessages } from './process'
 import logger from '../logging/logger'
 
-const SQS_QUEUE_URL = process.env.SQS_QUEUE_URL
+const { SQS_QUEUE_URL } = process.env
 
 const receiveMessage = receiveParams => new Promise((resolve, reject) => {
   logger('Going to get queue data')
