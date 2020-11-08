@@ -4,10 +4,10 @@
 Recently I watched a video on Experian's event based AWS architecture (https://www.youtube.com/watch?v=c_WNBmEc6EE) where they mentioned they used a node js sqs listener to decouple business logic and event processing. I decided to build my own version to learn more about sqs/sns and to understand what benefits this could bring to an existing application architecture. I welcome any feedback / thoughts / comments / suggestions.
 
 ## About the service
-This service can be run as a sidecar container to hook up a microservice to an sqs queue whilst preserving the parent's service ability to serve RESTful api requests to different endpoints. The purpose of this sqs listener to take messages from an sqs queue and convert it into a RESTful api request.
+This service can be run as a sidecar container to hook up a microservice to an sqs queue whilst preserving the parent's service ability to support RESTful apis. The purpose of this sqs listener to take messages from an sqs queue and convert it into an api request.
 
 ## Main features
-1. Convert sqs events into RESTful api requests
+1. Convert sqs events into api requests
 2. Update polling frequency whilst the service is live (i.e use a polling frequency update event type)
 3. Delete events from the queue once it's finished processing
 
